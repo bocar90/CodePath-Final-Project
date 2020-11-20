@@ -12,6 +12,9 @@ import Parse
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var priceField: UITextField!
+    @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     
     
@@ -24,6 +27,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func onSubmitButton(_ sender: Any) {
         let post = PFObject(className: "Posts")
         
+        post["title"] = titleField.text!
+        post["price"] = priceField.text!
+        post["category"] = categoryField.text!
         post["description"] = descriptionField.text!
         post["author"] = PFUser.current()!
         

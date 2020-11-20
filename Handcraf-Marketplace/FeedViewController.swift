@@ -75,24 +75,37 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        print("Loading up the details screen")
         
-        //Find the selected movie
+      /*  let id = segue.identifier!
+        if id == "PostDetailsViewControllerSegue"{
+            //Find the selected post
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)!
+            let post = posts[indexPath.row]
+        
+            //Pass the selected movie to the details view controller
+            let detailsViewController = segue.destination as! PostDetailsViewController
+            
+            detailsViewController.post = post
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+        }*/
+        
+        //Find the selected post
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)!
         let post = posts[indexPath.row]
-        
+    
         //Pass the selected movie to the details view controller
-        //let detailsViewController = segue.destination as! PostDetailsViewController
-        
-        //detailsViewController.post = post
+        let detailsViewController = segue.destination as! PostDetailsViewController
+        detailsViewController.post = post
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }*/
+    }
     
 
 }
